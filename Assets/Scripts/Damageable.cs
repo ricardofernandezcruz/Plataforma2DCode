@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+using UnityEngine.SceneManagement;
 public class Damageable : MonoBehaviour
 {
     public UnityEvent<int, Vector2> damageableHit;
@@ -71,6 +71,8 @@ public class Damageable : MonoBehaviour
             if(value == false)
             {
                 damageableDeath.Invoke();
+            // Reinicia el juego en el nivel 1 cuando el jugador muere
+                SceneManager.LoadScene(0);
             }
         }
     }
